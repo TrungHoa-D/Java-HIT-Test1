@@ -26,7 +26,7 @@ public class Main {
                     num += asc * d;
                     d *= 10;
                 }
-                if (i != 0 && chars[i] == '-') sum -= num;
+                if (i != 0 && chars[i-1] == '-') sum -= num;
                 else sum += num;
                 i = j;
             }

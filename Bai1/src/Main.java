@@ -4,19 +4,22 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Nhap xau: ");
-        String s= sc.nextLine();
-        char[] chars= s.toCharArray();
-        long sum=0;
-        int i=0;
-        while(i<s.length())
-        {
-            int ascii= (int) chars[i];
-            if(ascii>=48 && ascii <= 57) {
+        String s = sc.nextLine();
+        char[] chars = s.toCharArray();
+        long sum = 0;
+        int i = 0;
+        while (i < s.length()) {
+            int ascii = (int) chars[i];
+            if (ascii >= 48 && ascii <= 57) {
                 int j = i + 1;
-                int asci= (int) chars[j];
-                while (asci >= 48 && asci <= 57){
+                int asci;
+                if (j < s.length()) asci = (int) chars[j];
+                else {
+                    asci = 58;
+                }
+                while (asci >= 48 && asci <= 57 && j < s.length()) {
                     j++;
-                    asci=(int) chars[j];
+                    if (j < s.length()) asci = (int) chars[j];
                 }
                 int num = 0;
                 int d = 1;
@@ -26,12 +29,12 @@ public class Main {
                     num += asc * d;
                     d *= 10;
                 }
-                if (i != 0 && chars[i-1] == '-') sum -= num;
+                if (i != 0 && chars[i - 1] == '-') sum -= num;
                 else sum += num;
                 i = j;
             }
             i++;
         }
-        System.out.println("Tong la: "+sum);
+        System.out.println("Tong la: " + sum);
     }
 }

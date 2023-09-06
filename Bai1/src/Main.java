@@ -13,7 +13,11 @@ public class Main {
             int ascii= (int) chars[i];
             if(ascii>=48 && ascii <= 57) {
                 int j = i + 1;
-                while (ascii >= 48 && ascii <= 57) j++;
+                int asci= (int) chars[j];
+                while (asci >= 48 && asci <= 57){
+                    j++;
+                    asci=(int) chars[j];
+                }
                 int num = 0;
                 int d = 1;
                 for (int index = j - 1; index >= i; index--) {
